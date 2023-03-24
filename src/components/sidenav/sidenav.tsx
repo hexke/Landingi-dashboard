@@ -2,14 +2,17 @@ import { useState, useEffect, memo } from 'react';
 import { getAllCarts } from '../../utils/cart';
 import { Cart } from '../../interface/interface';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const StyledCart = styled.div`
+const StyledCart = styled(Link)`
 background-color: blue;
 color: #F2F2F2;
 margin-bottom: 10px;
 border-radius: 5px;
 padding: 10px 20px;
 font-size: 20px;
+display: block;
+text-decoration: none;
 cursor: pointer;
 
 &:hover {
@@ -22,7 +25,7 @@ export const Sidenav = () => {
 
     useEffect(() => {
         const FetchCarts = async () => {
-            const body = await getAllCarts();
+            const body = await (await getAllCarts()).json();
 
             setCartsList(body.carts);
         }
@@ -33,7 +36,7 @@ export const Sidenav = () => {
 
     return (
         <div>Sidenav
-            {cartsList.map(cart => <StyledCart key={`cart-${cart.id}`}>Cart no. {cart.id}</StyledCart>)}
+            {cartsList.map(cart => <StyledCart to={`/carts/${cart.id}`} key={`cart-${cart.id}`}>Cart no. {cart.id}</StyledCart>)}
         </div>
     )
 }
