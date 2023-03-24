@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # stack
-- [pnpm] (https://pnpm.io/)
+- [pnpm](https://pnpm.io/)
 - [react](https://react.dev/)
 - [typescript](https://www.typescriptlang.org/)
 
