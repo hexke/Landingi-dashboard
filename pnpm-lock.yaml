@@ -8,10 +8,12 @@ specifiers:
   '@types/node': ^16.18.19
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
+  '@types/react-router-dom': ^5.3.3
   '@types/styled-components': ^5.1.26
   '@types/testing-library__jest-dom': ^5.14.5
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-router-dom: ^6.9.0
   react-scripts: 5.0.1
   styled-components: ^5.3.9
   typescript: ^4.9.5
@@ -25,9 +27,11 @@ dependencies:
   '@types/node': 16.18.19
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
+  '@types/react-router-dom': 5.3.3
   '@types/styled-components': 5.1.26
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4
   styled-components: 5.3.9_biqbaboplfbrettd7655fr4n2y
   typescript: 4.9.5
@@ -2041,6 +2045,11 @@ packages:
       webpack-dev-server: 4.13.1_webpack@5.76.3
     dev: false
 
+  /@remix-run/router/1.4.0:
+    resolution: {integrity: sha512-BJ9SxXux8zAg991UmT8slpwpsd31K1dHHbD3Ba4VzD+liLQ4WAMSxQp2d2ZPRPfN0jN2NPRowcSSoM7lCaF08Q==}
+    engines: {node: '>=14'}
+    dev: false
+
   /@rollup/plugin-babel/5.3.1_hqhlikriuul7byjexqnpgcmenu:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
     engines: {node: '>= 10.0.0'}
@@ -2403,6 +2412,10 @@ packages:
       '@types/node': 16.18.19
     dev: false
 
+  /@types/history/4.7.11:
+    resolution: {integrity: sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==}
+    dev: false
+
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
@@ -2485,6 +2498,21 @@ packages:
   /@types/react-dom/18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
+      '@types/react': 18.0.28
+    dev: false
+
+  /@types/react-router-dom/5.3.3:
+    resolution: {integrity: sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==}
+    dependencies:
+      '@types/history': 4.7.11
+      '@types/react': 18.0.28
+      '@types/react-router': 5.1.20
+    dev: false
+
+  /@types/react-router/5.1.20:
+    resolution: {integrity: sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==}
+    dependencies:
+      '@types/history': 4.7.11
       '@types/react': 18.0.28
     dev: false
 
@@ -8333,6 +8361,29 @@ packages:
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /react-router-dom/6.9.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-/seUAPY01VAuwkGyVBPCn1OXfVbaWGGu4QN9uj0kCPcTyNYgL1ldZpxZUpRU7BLheKQI4Twtl/OW2nHRF1u26Q==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.4.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.9.0_react@18.2.0
+    dev: false
+
+  /react-router/6.9.0_react@18.2.0:
+    resolution: {integrity: sha512-51lKevGNUHrt6kLuX3e/ihrXoXCa9ixY/nVWRLlob4r/l0f45x3SzBvYJe3ctleLUQQ5fVa4RGgJOTH7D9Umhw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.4.0
+      react: 18.2.0
     dev: false
 
   /react-scripts/5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4:
