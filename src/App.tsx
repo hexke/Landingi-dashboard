@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import './App.css';
 import { createBrowserRouter, RouterProvider, redirect } from 'react-router-dom';
 import Layout from './components/layout/layout';
-import CartDetailsPage from './components/pages/cartDetails';
+import CartDetailsPage, { loader } from './components/pages/cartDetails';
 import HomePage from './components/pages/home';
 
 const router = createBrowserRouter([
@@ -21,7 +20,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/carts/:cartId",
-                element: <CartDetailsPage />
+                element: <CartDetailsPage />,
+                loader: loader
             }
         ]
     }
