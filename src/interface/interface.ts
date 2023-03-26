@@ -1,5 +1,4 @@
-
-export interface Product {
+export interface IProduct {
     id: number,
     title: string,
     price: number,
@@ -9,10 +8,9 @@ export interface Product {
     discountedPrice: number
 }
 
-
-export interface Cart {
+export interface ICart {
     id: number;
-    products: Product[],
+    products: IProduct[],
     total: number,
     discountedTotal: number,
     userId: number,
@@ -20,8 +18,8 @@ export interface Cart {
     totalQuantity: number
 }
 
-export interface Carts {
-    carts: Cart[],
+export interface ICarts {
+    carts: ICart[],
     total: number,
     skip: number,
     limit: number

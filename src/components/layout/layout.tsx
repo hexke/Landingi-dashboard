@@ -8,7 +8,7 @@ const Grid = styled.div`
 gap: 20px;  
 display: grid;
 margin: 30px 0;
-grid-template-columns: 1fr 3fr;
+grid-template-columns: auto 1fr;
 
 `;
 

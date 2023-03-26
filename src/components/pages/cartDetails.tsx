@@ -1,7 +1,9 @@
 import { useLoaderData } from 'react-router-dom';
 import { getCart } from '../../utils/cart';
-import { Cart } from '../../interface/interface';
+import { ICart } from '../../interface/interface';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 
 const StyledTable = styled.table`
 width: 100%;
@@ -10,7 +12,7 @@ border-collapse: collapse;
 & th,
 & td {
     text-align: center;
-    padding: 3px 10px;
+    padding: 5px 10px;
     border: 1px solid black;
 
     &:first-child {
@@ -20,7 +22,7 @@ border-collapse: collapse;
 
 & thead th,
 & tfoot th {
-    background-color: #e8e8ff;
+    background-color: #e5e5e5;
 }
 
 & tfoot th:first-child {
@@ -29,21 +31,23 @@ border-collapse: collapse;
 `;
 
 export const CartDetailsPage = () => {
-    const cart = useLoaderData() as Cart;
+    const cart = useLoaderData() as ICart;
 
     return (
         <div>
-            <p>Id: {cart.id}</p>
+            <h1>Cart number: {cart.id}</h1>
             <hr />
-            <p>Products:</p>
+            <h2>Cart chart</h2>
+            <hr />
+            <h2>Products</h2>
             <StyledTable>
                 <thead>
                     <tr>
                         <th>name</th>
                         <th>quantity</th>
-                        <th>price</th>
-                        <th>discounted price</th>
-                        <th>discounted %</th>
+                        <th>price (<FontAwesomeIcon icon={faDollarSign}/>)</th>
+                        <th>discounted price (<FontAwesomeIcon icon={faDollarSign}/>)</th>
+                        <th>discounted (%)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +69,7 @@ export const CartDetailsPage = () => {
                         <th>{cart.totalQuantity}</th>
                         <th>{cart.total}</th>
                         <th>{cart.discountedTotal}</th>
-                        <th>N/A</th>
+                        <th></th>
                     </tr>
                 </tfoot>
             </StyledTable>
