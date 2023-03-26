@@ -2,6 +2,20 @@ import { useState, useEffect, memo } from 'react';
 import { getAllCarts } from '../../utils/cart';
 import { ICart } from '../../interface/interface';
 import Cart from '../cart/cart';
+import styled from 'styled-components';
+
+const StyledSidenav = styled.div`
+@media (max-width: 992px){
+    overflow-y: scroll;
+    padding: 10px;
+    
+    & div {
+        gap: 10px;
+        display: flex;
+        width: max-content;
+    }
+}
+`;
 
 export const Sidenav = () => {
     const [error, setError] = useState<boolean>(false);
@@ -27,10 +41,13 @@ export const Sidenav = () => {
     }, []);
 
     return (
-        <div>
-            {error && <p>Could not load carts!</p>}
-            {!error && cartsList.map(cart => <Cart key={`cart-${cart.id}`} cart={cart} />)}
-        </div>
+
+        <StyledSidenav>
+            <div>
+                {error && <p>Could not load carts!</p>}
+                {!error && cartsList.map(cart => <Cart key={`cart-${cart.id}`} cart={cart} />)}
+            </div>
+        </StyledSidenav>
     )
 }
 
