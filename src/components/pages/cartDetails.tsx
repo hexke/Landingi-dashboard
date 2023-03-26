@@ -4,6 +4,7 @@ import { ICart } from '../../interface/interface';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import Chart from '../chart/chart';
 
 const StyledTable = styled.table`
 width: 100%;
@@ -50,6 +51,7 @@ export const CartDetailsPage = () => {
         <div>
             <StyledTitle>Cart number: {cart.id}</StyledTitle>
             <StyledSubTitle>Cart chart</StyledSubTitle>
+            <Chart products={cart.products} />
             <StyledSubTitle>Products</StyledSubTitle>
             <StyledTable>
                 <thead>
@@ -64,11 +66,11 @@ export const CartDetailsPage = () => {
                 <tbody>
                     {
                         cart.products.map(product =>
-                            <tr>
+                            <tr key={product.title}>
                                 <td>{product.title}</td>
                                 <td>{product.quantity}</td>
                                 <td>{product.price}</td>
-                                <td>{product.discountedPrice}</td>
+                                <td>{(product.discountedPrice / product.quantity).toFixed(2)}</td>
                                 <td>{product.discountPercentage}</td>
                             </tr>
                         )

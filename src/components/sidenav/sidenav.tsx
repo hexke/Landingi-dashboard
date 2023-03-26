@@ -27,8 +27,6 @@ export const Sidenav = () => {
 
             const body = await response.json();
 
-            console.log(response);
-
             if (!response.ok) {
                 setError(true);
                 return;
