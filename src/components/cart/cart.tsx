@@ -17,6 +17,7 @@ width: 250px;
 text-decoration: none;
 cursor: pointer;
 position: relative;
+transition: background-color .1s ease-in-out;
 
 &:hover {
 background-color: #dadada;
@@ -28,7 +29,7 @@ background-color: #dadada;
 `;
 
 const StyledSpan = styled.span`
-font-size: 12px;
+font-size: 13px;
 background-color: gold;
 color: black;
 font-weight: 700;

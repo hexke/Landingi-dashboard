@@ -30,23 +30,34 @@ border-collapse: collapse;
 }
 `;
 
+const StyledTitle = styled.p`
+font-size: 32px;
+font-weight: 700;
+line-height: 1em;
+margin-bottom: 0.5em;
+`;
+
+const StyledSubTitle = styled(StyledTitle)`
+    font-size: 24px;
+    margin-bottom: 0.5em;
+    margin-top: 2em;
+`;
+
 export const CartDetailsPage = () => {
     const cart = useLoaderData() as ICart;
 
     return (
         <div>
-            <h1>Cart number: {cart.id}</h1>
-            <hr />
-            <h2>Cart chart</h2>
-            <hr />
-            <h2>Products</h2>
+            <StyledTitle>Cart number: {cart.id}</StyledTitle>
+            <StyledSubTitle>Cart chart</StyledSubTitle>
+            <StyledSubTitle>Products</StyledSubTitle>
             <StyledTable>
                 <thead>
                     <tr>
                         <th>name</th>
                         <th>quantity</th>
-                        <th>price (<FontAwesomeIcon icon={faDollarSign}/>)</th>
-                        <th>discounted price (<FontAwesomeIcon icon={faDollarSign}/>)</th>
+                        <th>price (<FontAwesomeIcon icon={faDollarSign} />)</th>
+                        <th>discounted price (<FontAwesomeIcon icon={faDollarSign} />)</th>
                         <th>discounted (%)</th>
                     </tr>
                 </thead>
