@@ -1,19 +1,27 @@
-import { faDollarSign, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign, faShoppingCart, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ICart } from "../../interface/interface";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useCallback, useState } from "react";
+import { deleteCart } from "../../utils/cart";
+import useTimeout from "../../hooks/useTimeout";
+
+const StyledDiv = styled.div`
+position: relative;
+display: flex;
+align-items: center;
+width: 100%;
+`;
 
 const StyledLink = styled(Link)`
 background-color: #e5e5e5;
 color: black;
-margin-bottom: 20px;
-border-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
 padding: 10px 20px;
 font-size: 20px;
-display: flex;
-align-items: center;
-width: 250px;
+flex: 0 1 200px;
 text-decoration: none;
 cursor: pointer;
 position: relative;
@@ -37,20 +45,73 @@ padding: 3px 7px;
 border-radius: 3px;
 position: absolute;
 top: 0px;
-right: 0px;
-transform: translate(0, -5px);
+z-index: 100;
+left: 0px;
+transform: translate(0, -15px);
 `;
 
+const StyledButton = styled.button`
+background-color: red;
+color: white;
+border: none;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+align-self: stretch;
+padding: 0 10px;
+font-size: 18px;
+cursor: pointer;
+`;
 
-export const Cart = ({ cart }: { cart: ICart }) => {
+const StyledError = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+width:100%;
+height:100%;
+z-index:10;
+color: red;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: rgba(0,0,0,0.85);
+`;
+
+interface ICartProps {
+    cart: ICart,
+    onCartDelete: () => void,
+}
+
+export const Cart = ({ cart, onCartDelete }: ICartProps) => {
+    const [error, setError] = useState<boolean>(false);
+    const [set, clear] = useTimeout(() => { setError(false) }, 3000);
+
+    const cartRemoveHandler = useCallback(async () => {
+        const response = await deleteCart(cart.id);
+
+        if (!response.ok) {
+            setError(true);
+            set();
+            return;
+        }
+
+        onCartDelete();
+
+    }, [onCartDelete]);
+
     return (
-        <StyledLink to={`/carts/${cart.id}`}>
-            <FontAwesomeIcon icon={faShoppingCart} />
-            cart no: {cart.id}
+        <StyledDiv>
+            <StyledLink to={`/carts/${cart.id}`}>
+                <FontAwesomeIcon icon={faShoppingCart} />
+                cart no: {cart.id}
+            </StyledLink>
             <StyledSpan>
                 <FontAwesomeIcon icon={faDollarSign} />: {cart.discountedTotal}
             </StyledSpan>
-        </StyledLink>
+            <StyledButton onClick={cartRemoveHandler}>
+                <FontAwesomeIcon icon={faTrashAlt} />
+            </StyledButton>
+            {error && <StyledError>Could not remove cart</StyledError>}
+        </StyledDiv>
     )
 }
 

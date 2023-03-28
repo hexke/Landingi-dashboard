@@ -12,3 +12,13 @@ export async function getCart(cartId: number) {
 
     return response;
 }
+
+export async function deleteCart(cartId: number) {
+    const response = await fetch(`${BASE_URL}/${cartId}`, { method: "DELETE" });
+
+    return response;
+}
+
+export function calculateSingleDiscountedPrice(discountedPrice: number, quantity: number) {
+    return +(discountedPrice / quantity).toFixed(2);
+}

@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { IProduct } from '../../interface/interface';
 import styled from 'styled-components';
 import { ChartOptions } from 'chart.js';
+import { calculateSingleDiscountedPrice } from '../../utils/cart';
 
 const options: ChartOptions<'line'> = {
     responsive: true,
@@ -13,7 +14,6 @@ const options: ChartOptions<'line'> = {
     },
     scales: {
         y: {
-            stacked: true,
             title: {
                 display: true,
                 text: "Dollars",
@@ -54,7 +54,7 @@ export const Chart = ({ products }: { products: IProduct[] }) => {
                         },
                         {
                             label: 'discounted price',
-                            data: products.map(product => (product.discountedPrice / product.quantity)),
+                            data: products.map(product => calculateSingleDiscountedPrice(product.discountedPrice, product.quantity)),
                             backgroundColor: 'blue',
                             borderColor: 'transparent'
                         }
