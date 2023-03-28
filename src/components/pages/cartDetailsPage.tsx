@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
-import { getCart } from '../../utils/cart';
+import { calculateSingleDiscountedPrice, getCart } from '../../utils/cart';
 import { ICart } from '../../interface/interface';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -70,7 +70,7 @@ export const CartDetailsPage = () => {
                                 <td>{product.title}</td>
                                 <td>{product.quantity}</td>
                                 <td>{product.price}</td>
-                                <td>{(product.discountedPrice / product.quantity).toFixed(2)}</td>
+                                <td>{calculateSingleDiscountedPrice(product.discountedPrice, product.quantity)}</td>
                                 <td>{product.discountPercentage}</td>
                             </tr>
                         )
@@ -90,7 +90,7 @@ export const CartDetailsPage = () => {
     )
 }
 
-export const loader = async ({ params }: { params: any }) => {
+export const cartDetailsLoader = async ({ params }: { params: any }) => {
     const response = await getCart(params.cartId);
 
     return response;

@@ -41,10 +41,10 @@ export const Sidenav = () => {
     return (
 
         <StyledSidenav>
-            <div>
+            {/* <div>
                 {error && <p>Could not load carts!</p>}
                 {!error && cartsList.map(cart => <Cart key={`cart-${cart.id}`} cart={cart} />)}
-            </div>
+            </div> */}
         </StyledSidenav>
     )
 }

@@ -3,8 +3,12 @@ import { ReactNode } from 'react';
 
 
 const StyledContainer = styled.div`
-max-width: 1200px;
+max-width: 1040px;
 margin: auto;
+
+@media (max-width: 1060px){
+    margin-inline: 15px;
+}
 `;
 
 const Container = ({ children }: { children: ReactNode }) => {

@@ -2,31 +2,20 @@ import styled from "styled-components";
 import Header from "../header/header";
 import { Outlet } from 'react-router-dom';
 import Container from "../container/container";
-import Sidenav from "../sidenav/sidenav";
 
-const Grid = styled.div`
-gap: 20px;  
-display: grid;
-margin: 30px 0;
-grid-template-columns: auto 1fr;
-
-@media (max-width: 992px){
-    grid-template-columns: 1fr;
-}
+const StyledMain = styled.main`
+margin: 50px 0;
 `;
 
 export const Layout = () => {
     return (
         <>
             <Header />
-            <main>
+            <StyledMain>
                 <Container>
-                    <Grid>
-                        <Sidenav />
-                        <Outlet />
-                    </Grid>
+                    <Outlet />
                 </Container>
-            </main>
+            </StyledMain>
         </>
     )
 }
