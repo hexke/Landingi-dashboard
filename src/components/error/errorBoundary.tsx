@@ -1,9 +1,10 @@
 import { useRouteError } from "react-router-dom";
 import styled from "styled-components";
+import { color } from "../../lib/styles.config";
 
 const StyledError = styled.div`
 font-weight: 700;
-color: red;
+color: ${color.red};
 font-size: 18px;
 text-align: center;
 `;

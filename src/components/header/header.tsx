@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Container from "../container/container";
 import { Link } from "react-router-dom";
+import { color } from "../../lib/styles.config";
 
 const StyledHeader = styled.header`
-background-color: #1d00ad;
-color: #F2F2F2; 
+background-color: ${color.blue};
 padding: 10px;
 text-align: center;
 `;
@@ -17,12 +17,12 @@ gap: 15px;
 padding: 10px 0;
 
 & a {
-    color: white;
+    color: ${color.white};
     padding: 5px 15px;
     border-radius: 100px;
     font-weight: 500;
     text-decoration: none;
-    border: 2px solid white;
+    border: 2px solid currentColor;
 }
 `;
 

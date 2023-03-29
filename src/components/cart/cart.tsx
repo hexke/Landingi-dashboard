@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useCallback, useState } from "react";
 import { deleteCart } from "../../utils/cart";
 import useTimeout from "../../hooks/useTimeout";
+import { color } from "../../lib/styles.config";
 
 const StyledDiv = styled.div`
 position: relative;
@@ -17,7 +18,7 @@ border-radius: 5px;
 `;
 
 const StyledLink = styled(Link)`
-color: black;
+color: ${color.black};
 border-top-left-radius: 5px;
 border-bottom-left-radius: 5px;
 padding: 10px 20px;
@@ -29,7 +30,7 @@ position: relative;
 transition: background-color .1s ease-in-out;
 
 &:hover {
-background-color: #dadada;
+background-color: ${color.hover};
 }
 
 & > svg {
@@ -39,8 +40,8 @@ background-color: #dadada;
 
 const StyledSpan = styled.span`
 font-size: 13px;
-background-color: gold;
-color: black;
+background-color: ${color.gold};
+color: ${color.black};
 font-weight: 700;
 padding: 3px 7px;
 border-radius: 3px;
@@ -52,8 +53,8 @@ transform: translate(0, -15px);
 `;
 
 const StyledButton = styled.button`
-background-color: red;
-color: white;
+background-color: ${color.red};
+color: ${color.white};
 border: none;
 border-top-right-radius: 5px;
 border-bottom-right-radius: 5px;
@@ -70,12 +71,12 @@ left: 0;
 width:100%;
 height:100%;
 z-index:10;
-color: white;
+color: ${color.white};
 display: flex;
 align-items: center;
 justify-content: center;
 border-radius: 5px;
-background-color: red;
+background-color: ${color.red};
 `;
 
 interface ICartProps {

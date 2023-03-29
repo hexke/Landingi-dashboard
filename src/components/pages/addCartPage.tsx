@@ -8,6 +8,7 @@ import styled from "styled-components";
 import Button from "../button/button";
 import useFilter from "../../hooks/useFilter";
 import Table from "../table/table";
+import { color } from "../../lib/styles.config";
 
 const StyledForm = styled.form`
 display: flex;
@@ -18,10 +19,10 @@ margin-bottom: 30px;
     font-size: 16px;
     padding: 5px 0 0 0;
     border: none;
-    color: blue;
+    color: ${color.blue};
     font-weight: 700;
     outline: none;
-    border-bottom: 2px solid darkblue;
+    border-bottom: 2px solid ${color.blue};
 }
 
 & [type="number"]{
