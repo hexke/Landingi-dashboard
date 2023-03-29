@@ -4,7 +4,7 @@ import Layout from './components/layout/layout';
 import CartDetailsPage, { cartDetailsLoader } from './components/pages/cartDetailsPage';
 import HomePage, { homePageLoader } from './components/pages/homePage';
 import { Chart as ChartJS, Tooltip, Legend, LinearScale, PointElement, CategoryScale, LineElement } from 'chart.js';
-import { AddCartPage } from './components/pages/addCartPage';
+import { AddCartPage, addCartLoader } from './components/pages/addCartPage';
 import ErrorBoundary from './components/error/errorBoundary';
 
 ChartJS.register(Tooltip, Legend, LinearScale, PointElement, CategoryScale, LineElement);
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
             {
                 path: "/carts/add",
                 element: <AddCartPage />,
+                loader: addCartLoader,
                 errorElement: <ErrorBoundary />
             },
             {

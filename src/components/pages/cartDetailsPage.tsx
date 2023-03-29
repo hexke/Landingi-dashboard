@@ -5,41 +5,11 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import Chart from '../chart/chart';
+import Title from '../title/title';
+import Table from '../table/table';
 
-const StyledTable = styled.table`
-width: 100%;
-border-collapse: collapse;
-
-& th,
-& td {
-    text-align: center;
-    padding: 5px 10px;
-    border: 1px solid black;
-
-    &:first-child {
-        text-align: left;
-    }
-}
-
-& thead th,
-& tfoot th {
-    background-color: #e5e5e5;
-}
-
-& tfoot th:first-child {
-    text-align: right;
-}
-`;
-
-const StyledTitle = styled.p`
-font-size: 32px;
-font-weight: 700;
-line-height: 1em;
-margin-bottom: 0.5em;
-`;
-
-const StyledSubTitle = styled(StyledTitle)`
-    font-size: 24px;
+const StyledSubTitle = styled(Title)`
+    font-size: 24px !important;
     margin-bottom: 0.5em;
     margin-top: 2em;
 `;
@@ -49,18 +19,18 @@ export const CartDetailsPage = () => {
 
     return (
         <div>
-            <StyledTitle>Cart number: {cart.id}</StyledTitle>
-            <StyledSubTitle>Cart chart</StyledSubTitle>
+            <Title>Cart number: {cart.id}</Title>
+            <StyledSubTitle>Price chart</StyledSubTitle>
             <Chart products={cart.products} />
             <StyledSubTitle>Products</StyledSubTitle>
-            <StyledTable>
+            <Table>
                 <thead>
                     <tr>
-                        <th>name</th>
+                        <th>title</th>
                         <th>quantity</th>
                         <th>price (<FontAwesomeIcon icon={faDollarSign} />)</th>
                         <th>discounted price (<FontAwesomeIcon icon={faDollarSign} />)</th>
-                        <th>discounted (%)</th>
+                        <th>discount (%)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,7 +55,7 @@ export const CartDetailsPage = () => {
                         <th></th>
                     </tr>
                 </tfoot>
-            </StyledTable>
+            </Table>
         </div>
     )
 }

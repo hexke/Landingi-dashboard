@@ -4,6 +4,7 @@ import { getAllCarts } from "../../utils/cart";
 import styled from "styled-components";
 import Cart from "../cart/cart";
 import { useLoaderData } from "react-router-dom";
+import Title from "../title/title";
 
 const StyledList = styled.div`
 gap: 40px 20px;
@@ -35,6 +36,7 @@ export const HomePage = () => {
 
     return (
         <>
+            <Title>Available Carts</Title>
             <StyledList>
                 {cartsList.map(cart => <Cart key={`cart-${cart.id}`} cart={cart} onCartDelete={() => deleteCart(cart.id)} />)}
             </StyledList>
