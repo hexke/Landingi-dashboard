@@ -8,13 +8,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [typescript](https://www.typescriptlang.org/)
 - [styled components](https://styled-components.com/)
 - [font awesome](https://fontawesome.com/)
+- [chart.js](https://www.chartjs.org/)
+- [react router dom](https://reactrouter.com/)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-#### `pnpm install`
+#### `pnpm install` or `npm install`
 to install project dependencies
 
-#### `pnpm start`
+#### `pnpm start` or `npm start`
 to run project in development mode. Open [http://localhost:3000](http://localhost:3000) to view in browser.
