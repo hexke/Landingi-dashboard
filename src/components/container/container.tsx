@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
-
+import { mq } from '../../lib/styles.config';
 
 const StyledContainer = styled.div`
 max-width: 1040px;
 margin: auto;
 
-@media (max-width: 1060px){
+${mq['large']}{
     margin-inline: 15px;
 }
 `;

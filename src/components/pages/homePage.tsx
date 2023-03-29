@@ -5,21 +5,22 @@ import styled from "styled-components";
 import Cart from "../cart/cart";
 import { useLoaderData } from "react-router-dom";
 import Title from "../title/title";
+import { mq } from "../../lib/styles.config";
 
 const StyledList = styled.div`
 gap: 40px 20px;
 display: grid;
 grid-template-columns: repeat(4,1fr);
 
-@media (max-width: 992px){
+${mq['medium']}{
     grid-template-columns: repeat(3,1fr);
 }
 
-@media (max-width: 768px){
+${mq['small']}{
     grid-template-columns: repeat(2,1fr);
 }
 
-@media (max-width: 576px){
+${mq['xsmall']}{
     margin: auto;
     width: max-content;
     grid-template-columns: 1fr;
