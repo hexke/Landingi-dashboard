@@ -12,16 +12,17 @@ position: relative;
 display: flex;
 align-items: center;
 width: 100%;
+border: 1px solid black;
+border-radius: 5px;
 `;
 
 const StyledLink = styled(Link)`
-background-color: #e5e5e5;
 color: black;
 border-top-left-radius: 5px;
 border-bottom-left-radius: 5px;
 padding: 10px 20px;
 font-size: 20px;
-flex: 0 1 200px;
+flex: 1 1 200px;
 text-decoration: none;
 cursor: pointer;
 position: relative;
@@ -69,11 +70,12 @@ left: 0;
 width:100%;
 height:100%;
 z-index:10;
-color: red;
+color: white;
 display: flex;
 align-items: center;
 justify-content: center;
-background-color: rgba(0,0,0,0.85);
+border-radius: 5px;
+background-color: red;
 `;
 
 interface ICartProps {
