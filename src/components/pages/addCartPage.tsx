@@ -32,6 +32,16 @@ margin-bottom: 30px;
 }
 `;
 
+const StyledSubtitle = styled(Title)`
+font-size: 18px;
+margin-top: 30px;  
+`;
+
+const StyledList = styled.ul`
+padding-left: 20px;
+margin: 20px 0;
+`;
+
 export const AddCartPage = () => {
     const availableProducts = useLoaderData() as IProduct[];
     const [filteredProducts, filterProducts] = useFilter<IProduct>(availableProducts);
@@ -46,15 +56,19 @@ export const AddCartPage = () => {
             userId: cartState.userId,
             products: [...cartState.cart]
         };
-
-        dispatch({
-            type: "CLEAR",
-            payload: {} as ICartProduct
-        });
-
+        
         const response = await createCart(JSON.stringify(cartJson));
-
+        
+        const body = await response.json();
+        
         if (!response.ok) {
+            alert(body.message);
+        } else {
+            dispatch({
+                type: "CLEAR",
+                payload: {} as ICartProduct
+            });
+            alert("Cart added");
         }
     };
 
@@ -111,7 +125,7 @@ export const AddCartPage = () => {
             </StyledForm>
 
             <div>
-                <p>Available products:</p>
+                <StyledSubtitle>Available products: (click to add)</StyledSubtitle>
                 <Table>
                     <thead>
                         <tr>
@@ -133,10 +147,10 @@ export const AddCartPage = () => {
                 </Table>
             </div>
 
-            <p>cart:</p>
-            <ul>
+            <StyledSubtitle>cart:</StyledSubtitle>
+            <StyledList>
                 {cartState.cart.map(product => <li key={product.title}>{product.title}: ({product.quantity})</li>)}
-            </ul>
+            </StyledList>
 
             <Button onClick={onCartCreate}>add cart</Button>
         </div>

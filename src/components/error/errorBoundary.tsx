@@ -1,6 +1,7 @@
 import { useRouteError } from "react-router-dom";
 import styled from "styled-components";
 import { color } from "../../lib/styles.config";
+import { Link } from "react-router-dom";
 
 const StyledError = styled.div`
 font-weight: 700;
@@ -15,6 +16,7 @@ export const ErrorBoundary = () => {
     return (
         <StyledError>Something went wrong...<br />
             {error && error.message && <p>message: {error.message}</p>}
+            <Link to="/">back to homepage</Link>
         </StyledError>
     )
 }
